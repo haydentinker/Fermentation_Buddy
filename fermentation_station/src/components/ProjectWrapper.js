@@ -7,10 +7,9 @@ import { EditProjectForm } from './EditProjectForm';
 export const ProjectWrapper = () => {
   const [projects,setProjects]=useState([])
   const addProject =project=>{
-    setProjects([...projects, { id: uuidv4(), ...project, isEditing: false }]);
-    console.log(projects)
+    setProjects([...projects, { id: uuidv4(), project, isEditing: false }]);
   }
-  const editProject = (id) => {
+  const editProject=id => {
     setProjects(projects.map((proj) => (proj.id === id ? { ...proj, isEditing: !proj.isEditing } : proj)));
   };
   return (
