@@ -1,10 +1,31 @@
-div {
+.navbar {
+    color:#FFFFFF;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: #265C3F;
-    margin-top: 0;
-    padding-top: 0;
+    position: fixed;
+    display:flex;
+    align-items: center;
+  }
 
+.logo{
+    max-width: 7%;
+    height:auto;
+    margin-right:5px;
+}
+.left-container{
+    display:flex;
+    align-items: center;
+}
+.right-container{
+    display:flex;
+    margin-left: auto;
+    padding-right:2%;
+    
 }
 
-div p {
-    color: #F5C667;
+h1,h2{
+    margin: 0;
+    margin-right:25px;
 }

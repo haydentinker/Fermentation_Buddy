@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import '../static/ProjectWrapper.css'
 export const ProjectForm = ({addProject}) => {
   const [value,setValue]=useState("")
   const handleSubmit = e=>{
