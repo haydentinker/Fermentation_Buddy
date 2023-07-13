@@ -1,18 +1,17 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-export const EditProjectForm = ({editProject,project}) => {
-  const [value,setValue]=useState("")
-  const handleSubmit = e=>{
+export const EditProjectForm = ({ editProject, project }) => {
+  const [value, setValue] = useState(project.project)
+  const handleSubmit = e => {
     e.preventDefault();
-    editProject(value);
+    editProject(value, project.id);
     setValue("")
   }
   return (<div>
-    <p>{project.project}</p>
     <form className="EditProjectForm" onSubmit={handleSubmit}><input type="text" className="ProjectInput" placeholder='What is the updated Value'
-    value={value} onChange={(e)=>setValue(e.target.value)}/>
-    <button type="submit" className='project-btn'>Update</button>
+      value={value} onChange={(e) => setValue(e.target.value)} />
+      <button type="submit" className='project-btn'>Update</button>
     </form>
-    </div>
+  </div>
   )
 }
