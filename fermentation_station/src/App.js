@@ -1,8 +1,10 @@
-import NavBar from './NavBar';
-
+import React from "react";
+import { ProjectWrapper } from "./components/ProjectWrapper";
 function App() {
   return (
-    <NavBar></NavBar>
+    <div><ProjectWrapper/></div>
+    
+    
   );
 }
 
