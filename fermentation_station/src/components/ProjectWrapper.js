@@ -23,20 +23,25 @@ export const ProjectWrapper = () => {
 
   return (<div className='content'>
     <ProjectForm addProject={addProject} />
-    {projects.length &&(
-    
-      <>
-      <p>Current Projects</p>
-      
-      {projects.map((project, index) => (
-        project.isEditing ? (
-
-          <EditProjectForm key={project.id} project={project} editProject={editProject} />
-        ) : (
-          <FermentationProject project={project} key={project.id} editProject={displayEdit} deleteProject={deleteProject} />
-        )))}
-          </>
-    )}  
+    {projects.length ? (
+  <>
+    <p>Current Projects</p>
+    {projects.map((project, index) =>
+      project.isEditing ? (
+        <EditProjectForm key={project.id} project={project} editProject={editProject} />
+      ) : (
+        <FermentationProject
+          project={project}
+          key={project.id}
+          editProject={displayEdit}
+          deleteProject={deleteProject}
+        />
+      )
+    )}
+  </>
+) : (
+  <p>No Current Projects</p>
+)}
     </div>
   )
 }

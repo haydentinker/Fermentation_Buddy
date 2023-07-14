@@ -1,0 +1,20 @@
+.ProjectForm {
+    color: #F5C667;
+}
+
+.FormGroup{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    color:black;
+}
+
+.ProjectInput{
+    width:50%;
+    align-self: center;
+}
+
+.ProjectBtn{
+    width:50;
+    align-self:center;
+}
