@@ -1,20 +1,28 @@
-import React from 'react'
+import {React,useState} from 'react'
 
 export const FermentationProject = ({ project, editProject,deleteProject }) => {
+  const [expandToggle, setExpandToggle] = useState(false);
   const handleEdit=()=>{
-    editProject(project.id);
+    editProject(project);
   };
   const handleDelete=()=>{
-    deleteProject(project.id);
+    deleteProject(project);
   };
   return (
     <div className='Projects'>
       <p>{project.project}</p>
-      {project.id && (
+      {project.project && (
       <>
       <button onClick={handleEdit}> Edit</button>
       <button onClick={handleDelete}>Delete</button>
+      <button onClick={(e) => setExpandToggle(!expandToggle)}>More Information</button>
       </>
+      )}
+      {expandToggle &&(
+        <div>
+        <p>Description: {project.description}</p>
+        <p>End date: {project.end_date}</p>
+        </div>
       )}
       </div>
   )

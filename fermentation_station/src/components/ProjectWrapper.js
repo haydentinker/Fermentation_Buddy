@@ -8,14 +8,15 @@ import { EditProjectForm } from './EditProjectForm';
 export const ProjectWrapper = () => {
   const [projects, setProjects] = useState([])
 
-  const deleteProject =id=>{
-    setProjects(projects.filter(project=>project.id!==id));
+  const deleteProject =deleteProj=>{
+    setProjects(projects.filter(project=>project.id!==deleteProj.id));
   }
-  const addProject = project => {
-    setProjects([...projects, { id: uuidv4(), project, isEditing: false }]);
+  const addProject = newProject => {
+    
+    setProjects([...projects, { id: uuidv4(), project:newProject.project,description:newProject.description,end_date:newProject.end_date,push_notifications:newProject.push_notifications, isEditing: false }]);
   }
-  const displayEdit = id => {
-    setProjects(projects.map((proj) => (proj.id === id ? { ...proj, isEditing: !proj.isEditing } : proj)));
+  const displayEdit = toggleEdit => {
+    setProjects(projects.map((proj) => (proj.id === toggleEdit.id ? { ...proj, isEditing: !proj.isEditing } : proj)));
   };
   const editProject = (updatedProject, id) => {
     setProjects(projects.map(project => project.id === id ? { ...project, project: updatedProject, isEditing: !project.isEditing } : project))
