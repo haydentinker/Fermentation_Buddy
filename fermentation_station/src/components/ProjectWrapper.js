@@ -12,7 +12,6 @@ export const ProjectWrapper = () => {
     setProjects(projects.filter(project=>project.id!==deleteProj.id));
   }
   const addProject = newProject => {
-    
     setProjects([...projects, { id: uuidv4(), project:newProject.project,description:newProject.description,end_date:newProject.end_date,push_notifications:newProject.push_notifications, isEditing: false }]);
   }
   const displayEdit = toggleEdit => {

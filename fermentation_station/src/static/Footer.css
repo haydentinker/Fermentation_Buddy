@@ -1,4 +1,4 @@
-.Footer{
+.footer{
     color:white;
     background-color: #184D33;
     width:100%;
@@ -7,4 +7,13 @@
     bottom:0;
     position: fixed;
     height:100;
+    display: flex;
+}
+
+.footer-div{
+    width:50%;
+}
+
+.footer-div h1{
+    margin:5% ;
 }
