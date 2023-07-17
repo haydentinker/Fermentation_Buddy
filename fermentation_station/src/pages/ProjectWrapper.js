@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import '../static/ProjectWrapper.css'
-import { ProjectForm } from "./ProjectForm"
+import { ProjectForm } from "../components/ProjectForm"
 import { v4 as uuidv4 } from 'uuid';
-import { FermentationProject } from './FermentationProject';
-import { EditProjectForm } from './EditProjectForm';
+import { FermentationProject } from '../components/FermentationProject';
+import { EditProjectForm } from '../components/EditProjectForm';
 
 
 export const ProjectWrapper = () => {

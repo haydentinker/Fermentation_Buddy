@@ -1,12 +1,12 @@
 import {React} from "react";
-import { ProjectWrapper } from "./components/ProjectWrapper";
+import { ProjectWrapper } from "./pages/ProjectWrapper";
 import './static/App.css'
 import { NavBar } from "./components/NavBar";
 import {Footer} from "./components/Footer";
 import {Routes, Route} from "react-router-dom";
-import { Calendar } from "./components/Calendar";
-import { Home } from "./components/Home";
-import { Profile } from "./components/Profile";
+import { Calendar } from "./pages/Calendar";
+import { Home } from "./pages/Home";
+import { Profile } from "./pages/Profile";
 function App() {
   return (
     <>

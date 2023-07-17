@@ -29,8 +29,13 @@ ul{
     list-style:none;
     justify-content: space-between;
 }
-
-h1,h2{
+a{
+    text-decoration: none;
     margin: 0;
     margin-right:25px;
+    font-size:30px;
+}
+a:visited{
+    
+    color:white;
 }
