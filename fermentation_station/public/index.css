@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d89f66;
+    position: relative;
+    overflow: hidden;
+    height:100vh;
+  }
+  
+  body::before,
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: rgba(256,256,256,.8);
+  }
+  
+  body::before {
+    left: 1px;
+  }
+  
+  body::after {
+    right: 1px;
+  }
+  

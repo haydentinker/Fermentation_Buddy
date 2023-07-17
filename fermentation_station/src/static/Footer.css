@@ -1,19 +1,20 @@
-.footer{
-    color:white;
-    background-color: #184D33;
-    width:100%;
-    left: 0;
-    right: 0;
-    bottom:0;
-    position: fixed;
-    height:100;
+.footer {
+    color: white;
+    background-color: 	#e8c5a3;
+    width: 95%; 
+    margin: 0 auto; 
+    bottom: 0;
+    margin: 10px; 
+    padding: 10px; 
     display: flex;
-}
-
-.footer-div{
-    width:50%;
-}
-
-.footer-div h1{
-    margin:5% ;
-}
+    border-radius: 40px;
+    z-index: 2;
+  }
+  
+  .footer-div {
+    width: 50%;
+  }
+  
+  .footer-div h1 {
+    margin: 5%;
+  }
