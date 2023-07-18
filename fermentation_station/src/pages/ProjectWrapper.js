@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import '../static/ProjectWrapper.css'
+import React, { useState,useEffect } from 'react'
+import '../css/ProjectWrapper.css'
 import { ProjectForm } from "../components/ProjectForm"
 import { v4 as uuidv4 } from 'uuid';
 import { FermentationProject } from '../components/FermentationProject';
 import { EditProjectForm } from '../components/EditProjectForm';
-
+import { createPickle } from '../animations/createPickle';
 
 export const ProjectWrapper = () => {
   const [projects, setProjects] = useState([])
@@ -21,9 +21,15 @@ export const ProjectWrapper = () => {
   const editProject = (updatedProject, id) => {
     setProjects(projects.map(project => project.id === id ? { ...project, project: updatedProject, isEditing: !project.isEditing } : project))
   };
-
+  useEffect(() => {
+    document.body.style.backgroundColor = "rgb(187, 165, 40)";
+    const intervalId = setInterval(createPickle, 1000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
   return (<div className='content'>
-    <ProjectForm addProject={addProject} />
+    {/* <ProjectForm addProject={addProject} /> */}
     {projects.length ? (
   <>
     <p>Current Projects</p>

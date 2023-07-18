@@ -1,12 +1,13 @@
 nav {
-    color:#3E291D;
+    color:white;
     top: 0;
     left: 0;
     right: 0;
     display:flex;
     align-items: center;
     position: fixed;
-    background-color: rgba(256, 256, 256, .5);
+    background-color: grey;
+    z-index: 3;
 }
 .navbar::after {
     content: "";
@@ -29,6 +30,7 @@ nav {
     align-items: center;
 }
 .right-container{
+    white-space: nowrap;
     display:flex;
     margin-left: auto;
     padding-right:2%;
@@ -37,7 +39,6 @@ nav {
 ul{
     display: flex;
     list-style:none;
-    justify-content: space-between;
 }
 a{
     text-decoration: none;
@@ -46,5 +47,5 @@ a{
     font-size:30px;
 }
 a:visited{
-    color:#3E291D;
+    color:white;
 }

@@ -7,7 +7,7 @@ body {
     height:100vh;
   }
   
-  body::before,
+  /* body::before,
   body::after {
     content: "";
     position: absolute;
@@ -23,5 +23,5 @@ body {
   
   body::after {
     right: 1px;
-  }
+  } */
   

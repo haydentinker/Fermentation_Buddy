@@ -1,10 +1,24 @@
-import React from 'react'
-import '../static/Home.css';
+import {React,useEffect} from 'react'
+import { createBubble } from '../animations/createBubble';
+import '../css/Home.css';
 export const Home = () => {
+  useEffect(() => {
+    document.body.style.backgroundColor= "#d89f66";
+    const intervalId = setInterval(createBubble, 1000);
+    return () => {
+      clearInterval(intervalId);
+    };
+    
+  }, []);
+  
   return (
+    
     <div className='home'>
+  
       <h1>Discover, Create, and Connect with Fermentation Buddy</h1>
-      <h3>Get Started Today</h3>
+      <h2>Never forget about your creations again!</h2>
+      <h2>Get Started Today</h2>
     </div>
+    
   )
 }
