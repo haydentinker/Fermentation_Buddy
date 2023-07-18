@@ -4,32 +4,20 @@
       opacity: 0;
     }
   
-    100% {
-      transform: translateY(-1000px);
+    50% {
+      transform: translateY(-500px);
       opacity: 1;
     }
+    100%{
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+
   }
   
   .pickle {
+    height:10%;
     position: absolute;
     animation: pickleAnimation 10s linear infinite;
   }
   
-  /* .pickle::before,
-  .pickle::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .pickle::before {
-    top: -20px;
-    left: 10px;
-  }
-  
-  .pickle::after {
-    top: 10px;
-    left: -20px;
-  }
-   */
