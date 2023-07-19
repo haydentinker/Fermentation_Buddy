@@ -17,7 +17,7 @@ div.home {
     color: #3E291D;
     background-color: rgba(232, 197, 163, .5);
     width: 70%;
-    border-radius: 40px;
+    border-radius: 250px;
     text-align: center;
     animation: moveUpDown 10s ease-in-out infinite;
     margin-left: 2.5%;
