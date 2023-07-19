@@ -2,8 +2,13 @@ import {React,useEffect} from 'react'
 import { createBubble } from '../animations/createBubble';
 import '../css/Home.css';
 export const Home = () => {
-  useEffect(() => {
-    document.body.style.backgroundColor= "#d89f66";
+  useEffect(() => { 
+    const pickles=document.querySelectorAll('.pickle');
+    pickles.forEach(element=>{
+      element.remove();
+    })
+    document.body.style.backgroundPosition='top';
+    
     const intervalId = setInterval(createBubble, 1000);
     return () => {
       clearInterval(intervalId);

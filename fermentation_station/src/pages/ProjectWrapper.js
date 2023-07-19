@@ -22,7 +22,8 @@ export const ProjectWrapper = () => {
     setProjects(projects.map(project => project.id === id ? { ...project, project: updatedProject, isEditing: !project.isEditing } : project))
   };
   useEffect(() => {
-    document.body.style.backgroundColor = "rgb(187, 165, 40)";
+    document.body.style.backgroundPosition='bottom';
+    // document.body.style.backgroundImage = 'linear-gradient(to top,rgb(187, 165, 40), rgb(187, 165, 40))';
     const intervalId = setInterval(createPickle, 1000);
     return () => {
       clearInterval(intervalId);
