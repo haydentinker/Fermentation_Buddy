@@ -6,15 +6,14 @@ import { Routes, Route } from "react-router-dom";
 import { Calendar } from "./pages/Calendar";
 import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
-import { initializeApp } from 'firebase/app';
+import { AuthContextProvider } from "./context/AuthContext";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import firebaseConfig from './config';
+
 function App() {
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  getDb(db);
+  
   return (
     <>
+      <AuthContextProvider>
       <NavBar />
       <div className="container">
         <Routes>
@@ -24,10 +23,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
+      </AuthContextProvider>
     </>
   );
-}
-async function getDb(db) {
-  console.log(db)
 }
 export default App;
