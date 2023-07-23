@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { FermentationProject } from '../components/FermentationProject';
 import { EditProjectForm } from '../components/EditProjectForm';
 import { createPickle } from '../animations/createPickle';
-import {collection,addDoc } from "firebase/firestore";
+import {collection,addDoc,doc,updateDoc } from "firebase/firestore";
 import { UserAuth } from '../context/AuthContext';
 export const ProjectWrapper = () => {
   const {user,db}=UserAuth();
@@ -20,7 +20,7 @@ export const ProjectWrapper = () => {
         project: newProject.project,
         description:newProject.description,
         end_date:newProject.end_date,
-        push_notifications:newProject.push_notifications,
+  
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -31,8 +31,16 @@ export const ProjectWrapper = () => {
   const displayEdit = toggleEdit => {
     setProjects(projects.map((proj) => (proj.id === toggleEdit.id ? { ...proj, isEditing: !proj.isEditing } : proj)));
   };
-  const editProject = (updatedProject, id) => {
-    setProjects(projects.map(project => project.id === id ? { ...project, project: updatedProject, isEditing: !project.isEditing } : project))
+  const editProject = async (id,updatedProject) => {
+    const projectRef=doc(db,'projects',updatedProject.project);
+    await updateDoc(projectRef,{
+      project: updatedProject.project,
+        description:updatedProject.description,
+        end_date:updatedProject.end_date,
+        push_notifications:updatedProject.push_notifications,
+    })
+    
+    setProjects(projects.map(project => project.id === id ? { ...project, project:updatedProject.project,description:updatedProject.description,end_date:updatedProject.end_date,push_notifications:updatedProject.push_notifications, isEditing: false } : project))
   };
   useEffect(() => {
     document.body.style.backgroundPosition='bottom';
