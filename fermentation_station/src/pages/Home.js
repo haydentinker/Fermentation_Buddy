@@ -4,8 +4,6 @@ import '../css/Home.css';
 import { UserAuth } from '../context/AuthContext';
 export const Home = () => {
   const {user}=UserAuth();
-  console.log("yes")
-  console.log(user.displayName)
   useEffect(() => { 
     const pickles=document.querySelectorAll('.pickle');
     pickles.forEach(element=>{

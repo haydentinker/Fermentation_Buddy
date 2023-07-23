@@ -1,9 +1,14 @@
 import {useEffect,useState,useContext,createContext} from "react";
+import firebaseConfig from "../config";
+import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithRedirect, GoogleAuthProvider,signOut,onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/firebaseconfig";
+import { getFirestore } from "firebase/firestore";
 const AuthContext=createContext();
 
 export const AuthContextProvider=({children})=>{
+    const firebase_app=initializeApp(firebaseConfig)
+    const auth=getAuth(firebase_app);
+    const db=getFirestore(firebase_app);
     const [user,setUser]=useState();
     const googleSignIn=()=>{
     const provider = new GoogleAuthProvider();
@@ -21,7 +26,7 @@ export const AuthContextProvider=({children})=>{
             unsubscribe();
         }
     },[]);
-    return <AuthContext.Provider value={{googleSignIn, logOut,user}}>
+    return <AuthContext.Provider value={{googleSignIn, logOut,user,db}}>
         {children}
     </AuthContext.Provider>
 }

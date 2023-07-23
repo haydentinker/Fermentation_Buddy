@@ -5,14 +5,27 @@ import { v4 as uuidv4 } from 'uuid';
 import { FermentationProject } from '../components/FermentationProject';
 import { EditProjectForm } from '../components/EditProjectForm';
 import { createPickle } from '../animations/createPickle';
-
+import {collection,addDoc } from "firebase/firestore";
+import { UserAuth } from '../context/AuthContext';
 export const ProjectWrapper = () => {
+  const {user,db}=UserAuth();
   const [projects, setProjects] = useState([])
-
+ 
   const deleteProject =deleteProj=>{
     setProjects(projects.filter(project=>project.id!==deleteProj.id));
   }
-  const addProject = newProject => {
+  const addProject = async newProject => {
+    try {
+      const docRef = await addDoc(collection(db, "projects"), {
+        project: newProject.project,
+        description:newProject.description,
+        end_date:newProject.end_date,
+        push_notifications:newProject.push_notifications,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
     setProjects([...projects, { id: uuidv4(), project:newProject.project,description:newProject.description,end_date:newProject.end_date,push_notifications:newProject.push_notifications, isEditing: false }]);
   }
   const displayEdit = toggleEdit => {
@@ -30,7 +43,7 @@ export const ProjectWrapper = () => {
     };
   }, []);
   return (<div className='content'>
-    {/* <ProjectForm addProject={addProject} /> */}
+    <ProjectForm addProject={addProject} />
     {projects.length ? (
   <>
     <p>Current Projects</p>
