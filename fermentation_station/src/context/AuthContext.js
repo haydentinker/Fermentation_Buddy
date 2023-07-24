@@ -22,10 +22,12 @@ export const AuthContextProvider=({children})=>{
     useEffect(()=>{
         const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser);
+            if(currentUser){
             const userDocRef=doc(db,'users',currentUser.uid);
             const data={name:currentUser.displayName,yes:"yes"};
             setDoc(userDocRef,data);
             console.log(currentUser)
+            };
         });
         return()=>{
             unsubscribe();

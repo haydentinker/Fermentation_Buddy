@@ -15,12 +15,15 @@ import {
 } from "firebase/firestore";
 import { UserAuth } from "../context/AuthContext";
 export const ProjectWrapper = () => {
-  const { user, db } = UserAuth();
+  const { user, db,googleSignIn } = UserAuth();
+  if (!user){
+    googleSignIn();
+  }
   const projectsCollectionRef = collection(
     doc(db, "users", user.uid),
     "projects"
   );
-  const [projects, setProjects] = useState([getDocs(projectsCollectionRef)]);
+  const [projects, setProjects] = useState([]);
 
   const deleteProject = async (deleteProj) => {
     await deleteDoc(doc(projectsCollectionRef, deleteProj.id));
@@ -92,13 +95,26 @@ export const ProjectWrapper = () => {
     );
   };
   useEffect(() => {
+    const projectsRef = collection(doc(db, "users", user.uid),"projects");
+    const getProjects = async ()=>{
+    try{
+      const projects= await getDocs(projectsRef);
+      const projectData=projects.docs.map((doc)=>({
+        id:doc.id,
+        ...doc.data(),
+      }));
+      setProjects(projectData);
+    }catch (error){
+      console.log(error);
+    }
+  };
+    getProjects();
     document.body.style.backgroundPosition = "bottom";
-    // document.body.style.backgroundImage = 'linear-gradient(to top,rgb(187, 165, 40), rgb(187, 165, 40))';
     const intervalId = setInterval(createPickle, 1000);
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [db,user.uid]);
   return (
     <div className="content">
       <ProjectForm addProject={addProject} />
