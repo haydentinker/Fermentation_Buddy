@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 
 export const EditProjectForm = ({ editProject, project }) => {
-  const [value, setValue] = useState(project.project)
+  const [value, setValue] = useState(project)
   const [errors, setErrors] = useState({
     date_error: false,
     name_error: false,
   });
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    editProject(value, project);
-    setValue({})
-  }
+    editProject(value);
+    setValue({
+      ...value,
+      project: "",
+      description: "",
+      end_date: "",
+      push_notifications: false,
+    });
+  };
   return (<div>
     <form className="EditProjectForm" onSubmit={handleSubmit}>
       <div className="FormGroup">

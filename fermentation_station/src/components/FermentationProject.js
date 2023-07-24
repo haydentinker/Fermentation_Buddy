@@ -20,6 +20,8 @@ export const FermentationProject = ({ project, editProject,deleteProject }) => {
       )}
       {expandToggle &&(
         <div>
+        <p>ID</p>
+        <p>{project.id}</p>
         <p>Description: {project.description}</p>
         <p>End date: {project.end_date}</p>
         </div>

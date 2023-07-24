@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "../css/ProjectForm.css";
-
+import { v4 as uuidv4 } from 'uuid';
 export const ProjectForm = ({ addProject }) => {
   const [value, setValue] = useState({
+    id:uuidv4(),
     project: "",
     description: "",
     end_date: "",
@@ -33,6 +34,7 @@ export const ProjectForm = ({ addProject }) => {
 
     addProject(value);
     setValue({
+      id:uuidv4(),
       project: "",
       description: "",
       end_date: "",

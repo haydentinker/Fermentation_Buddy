@@ -6,14 +6,12 @@ import { Routes, Route } from "react-router-dom";
 import { Calendar } from "./pages/Calendar";
 import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
-import { AuthContextProvider } from "./context/AuthContext";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+
 
 function App() {
   
   return (
     <>
-      <AuthContextProvider>
       <NavBar />
       <div className="container">
         <Routes>
@@ -23,7 +21,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
-      </AuthContextProvider>
     </>
   );
 }
