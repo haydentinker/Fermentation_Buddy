@@ -9,6 +9,9 @@ nav {
     background-color: grey;
     z-index: 3;
 }
+.link{
+    color:white;
+}
 .navbar::after {
     content: "";
     position: absolute;

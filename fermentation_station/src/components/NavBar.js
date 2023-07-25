@@ -10,7 +10,7 @@ export const NavBar = () => {
       <img className='logo' src={logo} alt='fermentation station logo'/>
       <ul>
         <li>
-          <Link to="/">Fermentation Buddy</Link>
+          <Link  className="link"to="/">Fermentation Buddy</Link>
         </li>
         </ul>
       </div>
@@ -18,13 +18,13 @@ export const NavBar = () => {
       <ul>
         
         <li>
-          <Link to="/projects">Projects</Link>
+          <Link className="link" to="/projects">Projects</Link>
         </li>
         <li>
-          <Link to="/calendar">Calendar</Link>
+          <Link className="link" to="/calendar">Calendar</Link>
         </li>
         <li>
-          <Link to="/profile">Log In</Link>
+          <Link className="link" to="/profile">Log In</Link>
         </li>
       </ul>
       </div>

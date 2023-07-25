@@ -16,21 +16,22 @@ import {
 import { UserAuth } from "../context/AuthContext";
 export const ProjectWrapper = () => {
   const { user, db,googleSignIn } = UserAuth();
-  if (!user){
-    googleSignIn();
-  }
-  const projectsCollectionRef = collection(
-    doc(db, "users", user.uid),
-    "projects"
-  );
   const [projects, setProjects] = useState([]);
 
   const deleteProject = async (deleteProj) => {
+    const projectsCollectionRef = collection(
+      doc(db, "users", user.uid),
+      "projects"
+    );
     await deleteDoc(doc(projectsCollectionRef, deleteProj.id));
     setProjects(projects.filter((project) => project.id !== deleteProj.id));
   };
   const addProject = async (newProject) => {
     try {
+      const projectsCollectionRef = collection(
+        doc(db, "users", user.uid),
+        "projects"
+      );
       const docRef = doc(projectsCollectionRef, newProject.id);
       const data = {
         project: newProject.project,
@@ -65,7 +66,10 @@ export const ProjectWrapper = () => {
     );
   };
   const editProject = async (updatedProject) => {
-    console.log(updatedProject.id);
+    const projectsCollectionRef = collection(
+      doc(db, "users", user.uid),
+      "projects"
+    );
     try {
       const editProjectRef = doc(db, projectsCollectionRef, updatedProject.id);
       await updateDoc(editProjectRef, {
@@ -95,6 +99,7 @@ export const ProjectWrapper = () => {
     );
   };
   useEffect(() => {
+  
     const projectsRef = collection(doc(db, "users", user.uid),"projects");
     const getProjects = async ()=>{
     try{

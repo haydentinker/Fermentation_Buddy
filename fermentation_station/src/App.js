@@ -17,7 +17,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          < Route path="/projects" element={<ProjectWrapper />} />
+          < Route path="/projects" element={user?(<ProjectWrapper />):(<Profile/>)} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
