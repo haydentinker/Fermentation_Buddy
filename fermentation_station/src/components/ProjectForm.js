@@ -16,7 +16,7 @@ export const ProjectForm = ({ addProject }) => {
   });
 
   const checkValidDate = (date) => {
-    const regex = /^\d{2}-\d{2}-\d{2}$/;
+    const regex = /^\d{2}-\d{2}-\d{4}$/;
     return regex.test(date);
   };
 
@@ -80,7 +80,7 @@ export const ProjectForm = ({ addProject }) => {
         <input
           type="text"
           className="ProjectInput"
-          placeholder="09-10-23"
+          placeholder="09-10-2023"
           value={value.end_date}
           onChange={(e) => setValue({ ...value, end_date: e.target.value })}
         />
@@ -103,7 +103,7 @@ export const ProjectForm = ({ addProject }) => {
 
         {errors.date_error && (
           <p className="ErrorMessage">
-            Please enter a valid date format (e.g., 09-10-23)
+            Please enter a valid date format (e.g., 09-10-2023)
           </p>
         )}
 

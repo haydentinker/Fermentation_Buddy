@@ -24,7 +24,7 @@ export const AuthContextProvider=({children})=>{
             setUser(currentUser);
             if(currentUser){
                 const userDocRef=doc(db,'users',currentUser.uid);
-                const data={name:currentUser.displayName,yes:"yes"};
+                const data={name:currentUser.displayName,email:currentUser.email};
                 setDoc(userDocRef,data);
                 console.log(currentUser)
             };
