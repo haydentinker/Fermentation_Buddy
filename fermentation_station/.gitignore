@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+#Email auth
+emailConfig.js
 #api key
 serviceAccountKey.json
 config.js
