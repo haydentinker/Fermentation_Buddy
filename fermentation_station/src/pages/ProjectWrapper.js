@@ -4,6 +4,7 @@ import { ProjectForm } from "../components/ProjectForm";
 import { FermentationProject } from "../components/FermentationProject";
 import { EditProjectForm } from "../components/EditProjectForm";
 import { createPickle } from "../animations/createPickle";
+import { TfiPlus } from "react-icons/tfi";
 import {
   collection,
   addDoc,
@@ -124,7 +125,11 @@ export const ProjectWrapper = () => {
     <div className="content">
       {projects.length ? (
         <>
-          <h1 className="ProjectsHeader">Current Projects</h1>
+  
+          <div className="ProjectsHeader">
+          <h1 >Current Projects</h1>
+          <button><TfiPlus/></button>
+          </div>
           {projects.map((project, index) =>
             project.isEditing ? (
               <EditProjectForm

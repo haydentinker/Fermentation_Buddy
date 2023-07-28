@@ -1,5 +1,6 @@
 import {React,useState} from 'react'
 import "../css/FermentationProject.css"
+import { TfiTrash,TfiPencilAlt,TfiAngleDown } from "react-icons/tfi";
 export const FermentationProject = ({ project, editProject,deleteProject }) => {
   const [expandToggle, setExpandToggle] = useState(false);
   const handleEdit=()=>{
@@ -14,9 +15,9 @@ export const FermentationProject = ({ project, editProject,deleteProject }) => {
       {project.project && (
       <div className='Projects'>
       <h2>{project.project}</h2>
-      <button onClick={handleEdit}> Edit</button>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={(e) => setExpandToggle(!expandToggle)}>More Information</button>
+      <button onClick={handleEdit}> <TfiPencilAlt/></button>
+      <button onClick={handleDelete}><TfiTrash/></button>
+      <button onClick={(e) => setExpandToggle(!expandToggle)}><TfiAngleDown/></button>
       </div>
       )}
       {expandToggle &&(
