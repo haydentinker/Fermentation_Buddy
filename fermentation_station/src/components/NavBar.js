@@ -20,11 +20,11 @@ export const NavBar = () => {
         <li>
           <Link className="link" to="/projects">Projects</Link>
         </li>
-        <li>
+        {/* <li>
           <Link className="link" to="/calendar">Calendar</Link>
-        </li>
+        </li> */}
         <li>
-          <Link className="link" to="/profile">Log In</Link>
+          <Link className="link" to="/profile">Profile</Link>
         </li>
       </ul>
       </div>
