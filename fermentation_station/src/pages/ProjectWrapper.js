@@ -122,10 +122,9 @@ export const ProjectWrapper = () => {
   }, [db,user.uid]);
   return (
     <div className="content">
-      <ProjectForm addProject={addProject} />
       {projects.length ? (
         <>
-          <p>Current Projects</p>
+          <h1 className="ProjectsHeader">Current Projects</h1>
           {projects.map((project, index) =>
             project.isEditing ? (
               <EditProjectForm

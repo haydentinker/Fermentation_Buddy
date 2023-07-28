@@ -2,6 +2,11 @@
     color: #222222;
     background-color:#F7F2E7 ;
     text-align: center;
-    width:80%;
     margin:20%;
+}
+h1.ProjectsHeader{
+    font-size:60px;
+}
+h2{
+    font-size: 30px;
 }
