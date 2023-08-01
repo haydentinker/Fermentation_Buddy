@@ -1,2 +1,2 @@
-# Fermentation_Station
-Fermentation Station Web App 
+# Fermentation_Buddy
+Fermentation Buddy Web App built using React and Firebase 
