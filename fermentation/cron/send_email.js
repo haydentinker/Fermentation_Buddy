@@ -1,6 +1,6 @@
 const admin = require("firebase-admin");
 const nodemailer= require('nodemailer');
-const serviceAccount = require("../serviceAccountKey.json");
+const serviceAccount = require("../../fermentation_buddy/serviceAccountKey.json");
 const emailAuth =require( "./emailConfig");
 const transporter=nodemailer.createTransport({
   service:"gmail",

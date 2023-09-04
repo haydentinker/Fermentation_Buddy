@@ -3,7 +3,7 @@ import "../css/ProjectWrapper.css";
 import { ProjectForm } from "../components/ProjectForm";
 import { FermentationProject } from "../components/FermentationProject";
 import { EditProjectForm } from "../components/EditProjectForm";
-import { createPickle } from "../animations/createPickle";
+
 import { TfiPlus } from "react-icons/tfi";
 import {
   collection,
@@ -115,11 +115,6 @@ export const ProjectWrapper = () => {
     }
   };
     getProjects();
-    document.body.style.backgroundPosition = "bottom";
-    const intervalId = setInterval(createPickle, 1000);
-    return () => {
-      clearInterval(intervalId);
-    };
   }, [db,user.uid]);
   return (
     <div className="content">
