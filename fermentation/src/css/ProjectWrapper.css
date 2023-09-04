@@ -1,0 +1,16 @@
+.content {
+    color: #222222;
+    background-color:#F7F2E7 ;
+    text-align: center;
+    margin:20%;
+    border-radius: 50px;
+}
+
+h1{
+    font-size:60px;
+    display: inline-block; 
+    margin-right:20px;
+}
+h2{
+    font-size: 30px;
+}
