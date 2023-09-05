@@ -1,16 +1,21 @@
 .content {
-    color: #222222;
-    background-color:#F7F2E7 ;
+    color: #3E291D;
     text-align: center;
-    margin:20%;
+    margin-top:10%;
     border-radius: 50px;
+    display:grid;
+    align-content: center;
+    justify-content: center;
 }
 
 h1{
     font-size:60px;
     display: inline-block; 
+    vertical-align: middle;
     margin-right:20px;
+    
 }
 h2{
     font-size: 30px;
 }
+

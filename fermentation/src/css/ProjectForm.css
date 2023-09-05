@@ -1,6 +1,6 @@
 .ProjectForm {
-    color: #F5C667;
-    background-color: #F7F2E7;
+    background-color: rgba(232, 197, 163, .5);
+    border-radius: 100px;
 }
 
 .FormGroup{
@@ -8,15 +8,22 @@
     flex-direction: column;
     gap:10px;
     color:black;
+    
 }
 
 .ProjectInput{
-    width:50%;
+    border:1px solid grey;
+    background-color: transparent;
     align-self: center;
     text-align: center;
 }
 
 .ProjectBtn{
-    width:50;
-    align-self:center;
+    
+    align-self: center;
+    text-align: center;
+    background-color: transparent;
+}
+::placeholder{
+    color: #3E291D;
 }

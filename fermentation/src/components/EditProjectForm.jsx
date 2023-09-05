@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import '../css/ProjectForm.css'
 export const EditProjectForm = ({ editProject, project }) => {
   const [value, setValue] = useState(project)
   const [errors, setErrors] = useState({
@@ -18,7 +18,7 @@ export const EditProjectForm = ({ editProject, project }) => {
     });
   };
   return (<div>
-    <form className="EditProjectForm" onSubmit={handleSubmit}>
+    <form className="ProjectForm" onSubmit={handleSubmit}>
       <div className="FormGroup">
         <label
           className={`ProjectLabel ${errors.name_error ? "ErrorLabel" : ""}`}

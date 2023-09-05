@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../css/ProjectWrapper.css";
+import '../css/ProjectForm.css';
 import { ProjectForm } from "../components/ProjectForm";
 import { FermentationProject } from "../components/FermentationProject";
 import { EditProjectForm } from "../components/EditProjectForm";
@@ -18,7 +19,7 @@ import { UserAuth } from "../context/AuthContext";
 export const ProjectWrapper = () => {
   const { user, db,googleSignIn } = UserAuth();
   const [projects, setProjects] = useState([]);
-
+  const [seeProjectForm,setProjectForm]=useState(false);
   const deleteProject = async (deleteProj) => {
     const projectsCollectionRef = collection(
       doc(db, "users", user.uid),
@@ -56,6 +57,7 @@ export const ProjectWrapper = () => {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+    setProjectForm(false);    
   };
   const displayEdit = (toggleEdit) => {
     setProjects(
@@ -117,30 +119,30 @@ export const ProjectWrapper = () => {
     getProjects();
   }, [db,user.uid]);
   return (
-    <div className="content">
+    <div className="content ProjectForm">
       {projects.length ? (
         <>
   
           <div className="ProjectsHeader">
           <h1 >Current Projects</h1>
-          <button><TfiPlus/></button>
+          <button onClick={()=>{setProjectForm(!seeProjectForm)}}><TfiPlus/></button>
           </div>
-          {projects.map((project, index) =>
-            project.isEditing ? (
-              <EditProjectForm
-                key={project.id}
-                project={project}
-                editProject={editProject}
-              />
-            ) : (
+          {seeProjectForm ? (<ProjectForm addProject={addProject}/>):<></>}
+          {projects.map((project) => (
+            <div key={project.id}>
               <FermentationProject
                 project={project}
-                key={project.id}
                 editProject={displayEdit}
                 deleteProject={deleteProject}
               />
-            )
-          )}
+              {project.isEditing ? (
+                <EditProjectForm
+                  project={project}
+                  editProject={editProject}
+                />
+              ) : null}
+            </div>
+          ))}
         </>
       ) : (
         <p>No Current Projects</p>

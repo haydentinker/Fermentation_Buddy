@@ -10,24 +10,23 @@ export const FermentationProject = ({ project, editProject,deleteProject }) => {
     deleteProject(project);
   };
   return (
-    <>
-      
-      {project.project && (
+
       <div className='Projects'>
+      {project.project && (
+      <>
       <h2>{project.project}</h2>
       <button onClick={handleEdit}> <TfiPencilAlt/></button>
       <button onClick={handleDelete}><TfiTrash/></button>
       <button onClick={(e) => setExpandToggle(!expandToggle)}><TfiAngleDown/></button>
-      </div>
+      </>
       )}
       {expandToggle &&(
-        <div>
-        <p>ID</p>
-        <p>{project.id}</p>
+        <>
         <p>Description: {project.description}</p>
         <p>End date: {project.end_date}</p>
-        </div>
+        </>
       )}
-      </>
+      </div>
+     
   )
 }
