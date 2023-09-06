@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import '../css/ProjectForm.css'
 export const EditProjectForm = ({ editProject, project }) => {
   const [value, setValue] = useState(project)
   const [errors, setErrors] = useState({

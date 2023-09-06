@@ -4,9 +4,6 @@ import { UserAuth } from '../context/AuthContext';
 export const Profile = () => {
   const { user, googleSignIn } = UserAuth();
 
-  useEffect(() => {
-    // Your other code here
-  }, []);
 
   return (
     <div className="home">
@@ -14,7 +11,6 @@ export const Profile = () => {
         Sign In
       </button>
       <h1>Hello {user?.displayName || 'Guest'}</h1>
-      {/* The rest of your JSX */}
     </div>
   );
 };

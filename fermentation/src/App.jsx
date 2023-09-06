@@ -10,16 +10,14 @@ import { UserAuth } from "./context/AuthContext";
 
 
 function App() {
-  const {user}=UserAuth();
+  const {user,googleSignIn}=UserAuth();
   return (
     <>
       <NavBar />
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          < Route path="/projects" element={user?(<ProjectWrapper />):(<Profile/>)} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/profile" element={<Profile />} />
+          < Route path="/projects" element={<ProjectWrapper/>} />
         </Routes>
       </div>
     </>

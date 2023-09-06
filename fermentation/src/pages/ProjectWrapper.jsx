@@ -126,10 +126,11 @@ export const ProjectWrapper = () => {
           <div className="ProjectsHeader">
           <h1 >Current Projects</h1>
           <button onClick={()=>{setProjectForm(!seeProjectForm)}}><TfiPlus/></button>
+          
           </div>
           {seeProjectForm ? (<ProjectForm addProject={addProject}/>):<></>}
           {projects.map((project) => (
-            <div key={project.id}>
+            <div className='ProjectForm'key={project.id}>
               <FermentationProject
                 project={project}
                 editProject={displayEdit}

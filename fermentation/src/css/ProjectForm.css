@@ -12,18 +12,24 @@
 }
 
 .ProjectInput{
+    border-radius: 20px;
     border:1px solid grey;
+    accent-color: transparent;
     background-color: transparent;
     align-self: center;
     text-align: center;
 }
 
 .ProjectBtn{
-    
     align-self: center;
     text-align: center;
     background-color: transparent;
+    border-radius: 20px;
 }
 ::placeholder{
     color: #3E291D;
+}
+
+input[type='checkbox']{
+    accent-color: brown;
 }
